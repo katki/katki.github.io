@@ -74,7 +74,7 @@ function addRowToTable(i,tableRow, source){
     var cell4 = row.insertCell(4);
     var cell5 = row.insertCell(5);
     var cell6 = row.insertCell(6);
-    cell0.innerHTML = i;
+    cell0.innerHTML = i+1;
     cell1.innerHTML = source[i].nazovKnihy;
     cell2.innerHTML = source[i].menoAutora;
     cell3.innerHTML = source[i].zaner; 
