@@ -1,8 +1,11 @@
 var myBooksTable;
 var wishListTable;
-var tableHeader = "<tr><th class=\"tiny\">#</th><th>Názov knihy</th><th>Meno autora</th><th>Žáner</th><th>Vydavateľstvo</th><th>Poznámka</th></tr>";
+var tableHeader = "<tr><th class=\"tiny\">#</th><th class=\"main\">Názov knihy</th><th class=\"main\">Meno autora</th><th class=\"one\">Žáner</th><th class=\"two\">Vydavateľstvo</th><th class=\"three\">Počet strán</th><th class=\"two\">Poznámka</th></tr>";
 var visibleTable;
 
+/**
+ * Pull data from google sheets and create table
+ */
 function init() {
     var keybooks = 'https://docs.google.com/spreadsheets/d/14O4xQZfwI4gsruKS0ttkBsvLn2mKpGmZMUz0zlZyFvI/edit?usp=sharing';
     var keyWishlist = 'https://docs.google.com/spreadsheets/d/1nEMknanCiKdqTTl9uXsYeVR13mFNwaZdhkMAj2rveHI/edit?usp=sharing';
@@ -27,11 +30,14 @@ function init() {
 }
 window.addEventListener('DOMContentLoaded', init)
 
+/**
+ * Create table with data after select
+ * @param {*} table name of table which will be visible
+ */
 function showTable(table){
     switch(table){
         case 'myBooksTable': 
             visibleTable = myBooksTable;
-            
             break;
         case 'wishListTable': 
             visibleTable = wishListTable;
@@ -47,20 +53,10 @@ function showTable(table){
     document.getElementById(table).style.color = "#6AA4C1";
 }
 
-function compareStrings(a, b) {
-    a = a.toLowerCase();
-    b = b.toLowerCase();
-  
-    return (a < b) ? -1 : (a > b) ? 1 : 0;
-}
-
-function compareStringsDesc(a, b) {
-    a = a.toLowerCase();
-    b = b.toLowerCase();
-  
-    return (a > b) ? -1 : (a < b) ? 1 : 0;
-}
-
+/**
+ * update selected table
+ * @param {*} tableName 
+ */
 function updateTable(tableName){
     document.getElementById("myTable").innerHTML = tableHeader;
     for(let i = 0; i < tableName.length; i++){
@@ -77,12 +73,33 @@ function addRowToTable(i,tableRow, source){
     var cell3 = row.insertCell(3);
     var cell4 = row.insertCell(4);
     var cell5 = row.insertCell(5);
+    var cell6 = row.insertCell(6);
     cell0.innerHTML = i;
     cell1.innerHTML = source[i].nazovKnihy;
     cell2.innerHTML = source[i].menoAutora;
     cell3.innerHTML = source[i].zaner; 
     cell4.innerHTML = source[i].vydavatelstvo; 
-    cell5.innerHTML = source[i].poznamky; 
+    cell4.innerHTML = source[i].vydavatelstvo; 
+    cell5.innerHTML = source[i].pocetStran; 
+    cell6.innerHTML = source[i].poznamky; 
+}
+
+/*************************************************
+ * ********* SORTER AND FILTER *******************
+ *************************************************/
+
+function compareStrings(a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+  
+    return (a < b) ? -1 : (a > b) ? 1 : 0;
+}
+
+function compareStringsDesc(a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+  
+    return (a > b) ? -1 : (a < b) ? 1 : 0;
 }
 
 function authorUp(){
