@@ -27,6 +27,7 @@ function init() {
         },
         simpleSheet: true
     });
+    colorOfNavLi(myBooksTable);
 }
 window.addEventListener('DOMContentLoaded', init)
 
@@ -44,13 +45,16 @@ function showTable(table){
             break;
     }
     updateTable(visibleTable);
+    colorOfNavLi(table);
+}
 
+function colorOfNavLi(tableName){
     var li = document.getElementsByClassName("li");
     for(var i = 0; i < li.length; i++){
         li[i].style.color = "white";
         console.log(li[i].style.color)
     }
-    document.getElementById(table).style.color = "#6AA4C1";
+    document.getElementById(tableName).style.color = "#6AA4C1";
 }
 
 /**
@@ -81,7 +85,8 @@ function addRowToTable(i,tableRow, source){
     cell4.innerHTML = source[i].vydavatelstvo; 
     cell4.innerHTML = source[i].vydavatelstvo; 
     cell5.innerHTML = source[i].pocetStran; 
-    cell6.innerHTML = source[i].poznamky; 
+    if(source[i].poznamky == undefined) cell6.innerHTML = " ";
+    else cell6.innerHTML = source[i].poznamky; 
 }
 
 /*************************************************

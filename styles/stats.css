@@ -1,0 +1,28 @@
+#numbers{
+    margin: 0 5%;
+}
+
+.numberStat{
+    display: inline-block;
+    width: 28%;
+    margin: 1%;
+}
+
+.title{
+    font-size: 0.8em;
+    color: gray;
+    text-transform: uppercase;
+}
+
+.number{
+    font-size: 5em;
+    margin: 0;
+    font-family: 'Merriweather', serif;
+}
+
+.chart{
+    height: auto;
+    display: inline-block;
+    width: 45%;
+    margin: 2.4%;
+}
