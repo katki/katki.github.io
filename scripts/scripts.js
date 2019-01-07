@@ -1,62 +1,3 @@
-var myBooksTable;
-var wishListTable;
-var tableHeader = "<tr><th class=\"tiny\">#</th><th class=\"main\">Názov knihy</th><th class=\"main\">Meno autora</th><th class=\"one\">Žáner</th><th class=\"two\">Vydavateľstvo</th><th class=\"three\">Počet strán</th><th class=\"two\">Poznámka</th></tr>";
-var visibleTable;
-
-/**
- * Pull data from google sheets and create table
- */
-function init() {
-    var keybooks = 'https://docs.google.com/spreadsheets/d/14O4xQZfwI4gsruKS0ttkBsvLn2mKpGmZMUz0zlZyFvI/edit?usp=sharing';
-    var keyWishlist = 'https://docs.google.com/spreadsheets/d/1nEMknanCiKdqTTl9uXsYeVR13mFNwaZdhkMAj2rveHI/edit?usp=sharing';
-
-    myBooksTable = Tabletop({
-        key: keybooks,
-        callback: function(data){
-            myBooksTable = data;
-            visibleTable = myBooksTable;
-            updateTable(visibleTable); 
-        },
-        simpleSheet: true
-    });
-
-    wishListTable = Tabletop({
-        key: keyWishlist,
-        callback: function(data2, tabletop) { 
-            wishListTable = data2;
-        },
-        simpleSheet: true
-    });
-    colorOfNavLi(myBooksTable);
-}
-window.addEventListener('DOMContentLoaded', init)
-
-/**
- * Create table with data after select
- * @param {*} table name of table which will be visible
- */
-function showTable(table){
-    switch(table){
-        case 'myBooksTable': 
-            visibleTable = myBooksTable;
-            break;
-        case 'wishListTable': 
-            visibleTable = wishListTable;
-            break;
-    }
-    updateTable(visibleTable);
-    colorOfNavLi(table);
-}
-
-function colorOfNavLi(tableName){
-    var li = document.getElementsByClassName("li");
-    for(var i = 0; i < li.length; i++){
-        li[i].style.color = "white";
-        console.log(li[i].style.color)
-    }
-    document.getElementById(tableName).style.color = "#6AA4C1";
-}
-
 /**
  * update selected table
  * @param {*} tableName 
@@ -67,6 +8,7 @@ function updateTable(tableName){
         addRowToTable(i, i, tableName);
     }
 }
+var tableHeader = "<tr><th class=\"tiny\">#</th><th class=\"main\">Názov knihy</th><th class=\"main\">Meno autora</th><th class=\"one\">Žáner</th><th class=\"two\">Vydavateľstvo</th><th class=\"three\">Počet strán</th><th class=\"two\">Poznámka</th></tr>";
 
 function addRowToTable(i,tableRow, source){
     var table = document.getElementById("myTable");

@@ -65,14 +65,14 @@ function createChart(sId, sType, aLabels, aData){
     console.log(aData)
     for(var i = 0; i < aData.length; i++){
         for(var j = 0; j < aData.length; j++){
-            if(aData[i] < aData[i+1]){
-                var swap = aData[i];
-                aData[i] = aData[i+1];
-                aData[i+1] = swap;
+            if(aData[j] < aData[j+1]){
+                var swap = aData[j];
+                aData[j] = aData[j+1];
+                aData[j+1] = swap;
 
-                swap = aLabels[i];
-                aLabels[i] = aLabels[i+1];
-                aLabels[i+1] = swap;
+                swap = aLabels[j];
+                aLabels[j] = aLabels[j+1];
+                aLabels[j+1] = swap;
             }
         }
     }

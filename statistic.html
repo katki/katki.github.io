@@ -15,30 +15,32 @@
   <nav id="leftSideNav">
     <ul>
       <li id="myBooksTable" class="li"><a href="index.html"><i class="fas fa-book"></i>  Moje knihy</a></li>
-      <li id="wishListTable" class="li"><a href="index.html"><i class="fas fa-bookmark"></i>  Knižný zoznam prianí</a></li>
-      <li><a href="statistic.html"><i class="fas fa-chart-line"></i> Štatistiky</a></li>
+      <li id="wishListTable" class="li"><a href="wishList.html"><i class="fas fa-bookmark"></i>  Knižný zoznam prianí</a></li>
+      <li><a href="statistic.html" style="color:#FF6F91"><i class="fas fa-chart-line"></i> Štatistiky</a></li>
     </ul>
   </nav>
     <article>
         <section id="numbers">
-            <div class="numberStat">
+            <div class="numberStat left">
                 <p class="title">Počet prečítaných strán</p>
-                <p class="number" id="pages">0</p>
+                <p class="number " id="pages">0</p>
             </div>
-            <div class="numberStat">
+            <div class="numberStat center">
                 <p class="title">Počet strán za tento rok</p>
                 <p class="number" id="pagesThisYear">0</p>
             </div>
-            <div class="numberStat">
+            <div class="numberStat right">
                 <p class="title">Knihy v knižnici</p>
                 <p class="number" id="books">0</p>
             </div>
         </section>
         
         <section class="chart">
+                <p class="title"> Moje najobľúbenejšie žánre </p>
             <canvas id="myChart"></canvas>
         </section>
         <section class="chart">
+            <p class="title" style="text-align: right"> Moje najobľúbenejšie vydavateľstvá</p>
                 <canvas id="vydavatelstvoChart"></canvas>
             </section>
 <script>
