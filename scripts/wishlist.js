@@ -11,6 +11,7 @@ function init() {
         callback: function(data) { 
             visibleTable = data;
             updateTable(visibleTable); 
+            console.log(visibleTable)
         },
         simpleSheet: true
     });
