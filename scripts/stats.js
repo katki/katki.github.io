@@ -64,7 +64,6 @@ window.addEventListener('DOMContentLoaded', init);
 
 
 function createChart(sId, sType, aLabels, aData){
-    console.log(aData)
     for(var i = 0; i < aData.length; i++){
         for(var j = 0; j < aData.length; j++){
             if(aData[j] < aData[j+1]){
