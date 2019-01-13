@@ -46,7 +46,9 @@ function init() {
             var numAnim1 = new CountUp('pages', 0, res);
             var numAnim2 = new CountUp("pagesThisYear", 0, 0);
             var numAnim3 = new CountUp("books", 0, myBooksTable.length);
-
+            
+            var money = getMoney();
+            console.log(money)
             numAnim1.start();
             numAnim2.start();
             numAnim3.start();
@@ -78,7 +80,7 @@ function createChart(sId, sType, aLabels, aData){
     }
     var myLabels = [aLabels[0], aLabels[1], aLabels[2], aLabels[3], aLabels[4]];
     var myData = [aData[0], aData[1], aData[2], aData[3], aData[4]];
-console.log(myData)
+
     var ctx = document.getElementById(sId).getContext('2d');
     var myChart = new Chart(ctx, {
         type: sType,
@@ -121,6 +123,17 @@ function chartData(acc, item, label){
     return acc;
 }
 
+function getMoney(){
+    var money = 0;
+    for(var i = 0; i < myBooksTable.length; i++){
+        var date = new Date(myBooksTable[i].kupene);
+        var actualDate = new Date();
+        if(date.getFullYear() === actualDate.getFullYear()){
+            money = money + myBooksTable[i].cena;
+        }
+    }
+    return money;
+}
 
 
 
