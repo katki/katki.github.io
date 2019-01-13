@@ -132,6 +132,7 @@ function getMoney(){
             money = money + myBooksTable[i].cena;
         }
     }
+    console.log(money)
     return money;
 }
 
