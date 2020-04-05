@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Ecatarina';
-    src: url('../Ecatarina/EcatarinaLight-Regular.ttf');
+    src: url('../assets/Ecatarina/EcatarinaLight-Regular.ttf');
   }
 @font-face {
     font-family: 'Earth Orbiter';
-    src: url('../earth-orbiter/earthorbiter.ttf');
+    src: url('../assets/earth-orbiter/earthorbiter.ttf');
 }
 
 :root {
